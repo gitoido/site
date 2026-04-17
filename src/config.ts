@@ -24,12 +24,13 @@ export interface SiteConfig {
   defaultOgImageAlt: string;
   
   // Global Settings
-  theme: "minimal" | "oxygen" | "atom" | "ayu" | "catppuccin" | "charcoal" | "dracula" | "everforest" | "flexoki" | "gruvbox" | "macos" | "nord" | "obsidian" | "rose-pine" | "sky" | "solarized" | "things" | "custom";
+  theme: string;
   customThemeFile?: string; // Filename in src/themes/custom/ (e.g., "my-cool-theme" for my-cool-theme.ts)
   availableThemes: "default" | Array<string>; // Control which themes users can select - "default" shows all built-in themes, array can include custom theme filenames
   fonts: {
     source: "local" | "cdn";
     families: {
+      logo: string;
       body: string;
       heading: string;
       mono: string;
@@ -183,15 +184,15 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   // Site Information
   // [CONFIG:SITE_URL]
-  site: "https://astro-modular.netlify.app",
+  site: "https://gito.lol",
   // [CONFIG:SITE_TITLE]
-  title: "Astro Modular",
+  title: "Dork Solutions",
   // [CONFIG:HOMEPAGE_TITLE]
-  homepageTitle: "",
+  homepageTitle: "Welcome",
   // [CONFIG:SITE_DESCRIPTION]
-  description: "A flexible blog theme designed for Obsidian users.",
+  description: "A personal site, a portfolio, a blog?",
   // [CONFIG:SITE_AUTHOR]
-  author: "David V. Kimball",
+  author: "Gito",
   // [CONFIG:SITE_LANGUAGE]
   language: "en",
   // [CONFIG:FAVICON_THEME_ADAPTIVE]
@@ -201,15 +202,16 @@ export const siteConfig: SiteConfig = {
 
   // Global Settings
   // [CONFIG:THEME]
-  theme: "oxygen", // Available themes: "minimal" | "oxygen" | "atom" | "ayu" | "catppuccin" | "charcoal" | "dracula" | "everforest" | "flexoki" | "gruvbox" | "macos" | "nord" | "obsidian" | "rose-pine" | "sky" | "solarized" | "things" | "custom"
+  theme: "everforest", // Available themes: "minimal" | "oxygen" | "atom" | "ayu" | "catppuccin" | "charcoal" | "dracula" | "everforest" | "flexoki" | "gruvbox" | "macos" | "nord" | "obsidian" | "rose-pine" | "sky" | "solarized" | "things" | "custom"
   // [CONFIG:CUSTOM_THEME_FILE]
   customThemeFile: "custom", // Only used if theme is set to "custom" above. Filename in src/themes/custom/ (without .ts extension)
   // [CONFIG:AVAILABLE_THEMES]
   availableThemes: "default", // "default" to show all built-in themes, or array of theme names like ["oxygen", "minimal", "obsidianite"] to limit choices (can include custom theme filenames)
   fonts: {
     // [CONFIG:FONT_SOURCE]
-    source: "local", // "local" for self-hosted @fontsource fonts, "cdn" for Google Fonts CDN
+    source: "cdn", // "local" for self-hosted @fontsource fonts, "cdn" for Google Fonts CDN
     families: {
+      logo: "Doto",
       // [CONFIG:FONT_BODY]
       body: "Inter",      // Body text font family
       // [CONFIG:FONT_HEADING]
@@ -222,7 +224,7 @@ export const siteConfig: SiteConfig = {
   },
   layout: {
     // [CONFIG:LAYOUT_CONTENT_WIDTH]
-    contentWidth: "45rem",
+    contentWidth: "60rem",
   },
   tableOfContents: {
     // [CONFIG:TABLE_OF_CONTENTS_ENABLED]
@@ -246,7 +248,7 @@ export const siteConfig: SiteConfig = {
   featureButton: "mode", // "mode" | "graph" | "theme" | "none"
   deployment: {
     // [CONFIG:DEPLOYMENT_PLATFORM]
-    platform: "netlify", // "netlify" | "vercel" | "github-pages" | "cloudflare-workers" - sets redirect configuration for the chosen platform (Cloudflare Workers uses Workers-compatible config)
+    platform: "cloudflare-workers", // "netlify" | "vercel" | "github-pages" | "cloudflare-workers" - sets redirect configuration for the chosen platform (Cloudflare Workers uses Workers-compatible config)
   },
 
   // Command Palette
@@ -256,7 +258,7 @@ export const siteConfig: SiteConfig = {
     // [CONFIG:COMMAND_PALETTE_SHORTCUT]
     shortcut: "ctrl+K",
     // [CONFIG:COMMAND_PALETTE_PLACEHOLDER]
-    placeholder: "Search posts",
+    placeholder: "Search contents",
     search: {
       // [CONFIG:COMMAND_PALETTE_SEARCH_POSTS]
       posts: true,
@@ -279,11 +281,11 @@ export const siteConfig: SiteConfig = {
       // [CONFIG:COMMAND_PALETTE_QUICK_ACTIONS_ENABLED]
       enabled: true,
       // [CONFIG:COMMAND_PALETTE_QUICK_ACTIONS_TOGGLE_MODE]
-      toggleMode: true,
+      toggleMode: false,
       // [CONFIG:COMMAND_PALETTE_QUICK_ACTIONS_GRAPH_VIEW]
       graphView: true,
       // [CONFIG:COMMAND_PALETTE_QUICK_ACTIONS_CHANGE_THEME]
-      changeTheme: true,
+      changeTheme: false,
     },
   },
 
@@ -318,22 +320,28 @@ export const siteConfig: SiteConfig = {
       { title: "Posts", url: "/posts/" },
       { title: "Projects", url: "/projects/" },
       { title: "Docs", url: "/docs/" },
-      { title: "About", url: "/about/",
+      {
+        title: "About", url: "/about/",
         children: [
-          { title: "Privacy Policy", url: "/privacy-policy/" }
-        ] },
-      { title: "GitHub", url: "https://github.com/davidvkimball/astro-modular" }
+          {title: "Privacy Policy", url: "/privacy-policy/"}
+        ]
+      }
     ],
     // [CONFIG:NAVIGATION_SOCIAL]
     social: [
       {
-        title: "X",
-        url: "https://x.com/davidvkimball",
-        icon: "x-twitter",
+        title: "Twitch",
+        url: "https://www.twitch.tv/gitovt",
+        icon: "twitch",
       },
+      // {
+      //   title: "X",
+      //   url: "https://x.com/gito_vt",
+      //   icon: "x-twitter",
+      // },
       {
         title: "GitHub",
-        url: "https://github.com/davidvkimball",
+        url: "https://github.com/gitoido",
         icon: "github",
       },
     ],
@@ -351,7 +359,7 @@ export const siteConfig: SiteConfig = {
   homeOptions: {
     featuredPost: {
       // [CONFIG:HOME_OPTIONS_FEATURED_POST_ENABLED]
-      enabled: true, // Show featured post on homepage
+      enabled: false, // Show featured post on homepage
       // [CONFIG:HOME_OPTIONS_FEATURED_POST_TYPE]
       type: "latest", // "latest" or "featured"
       // [CONFIG:HOME_OPTIONS_FEATURED_POST_SLUG]
@@ -367,13 +375,13 @@ export const siteConfig: SiteConfig = {
       // [CONFIG:HOME_OPTIONS_PROJECTS_ENABLED]
       enabled: true, // Show featured projects on homepage
       // [CONFIG:HOME_OPTIONS_PROJECTS_COUNT]
-      count: 2, // Number of projects to show
+      count: 4, // Number of projects to show
     },
     docs: {
       // [CONFIG:HOME_OPTIONS_DOCS_ENABLED]
       enabled: true, // Show featured docs on homepage
       // [CONFIG:HOME_OPTIONS_DOCS_COUNT]
-      count: 3, // Number of docs to show
+      count: 6, // Number of docs to show
     },
     blurb: {
       // [CONFIG:HOME_OPTIONS_BLURB_PLACEMENT]
@@ -417,33 +425,33 @@ export const siteConfig: SiteConfig = {
     customPostCardAspectRatio: "2.5/1", // Only used when postCardAspectRatio is "custom" (e.g., "2.5/1")
     comments: {
       // [CONFIG:POST_OPTIONS_COMMENTS_ENABLED]
-      enabled: false,
+      enabled: true,
       // [CONFIG:POST_OPTIONS_COMMENTS_PROVIDER]
       provider: "giscus",
       // [CONFIG:POST_OPTIONS_COMMENTS_REPO]
-      repo: "",
+      repo: "gitoido/site",
       // [CONFIG:POST_OPTIONS_COMMENTS_REPO_ID]
-      repoId: "",
+      repoId: "R_kgDOSDivzA",
       // [CONFIG:POST_OPTIONS_COMMENTS_CATEGORY]
-      category: "",
+      category: "Discussions",
       // [CONFIG:POST_OPTIONS_COMMENTS_CATEGORY_ID]
-      categoryId: "",
+      categoryId: "DIC_kwDOSDivzM4C66re",
       // [CONFIG:POST_OPTIONS_COMMENTS_MAPPING]
-      mapping: "",
+      mapping: "og:title",
       // [CONFIG:POST_OPTIONS_COMMENTS_STRICT]
-      strict: "",
+      strict: "1",
       // [CONFIG:POST_OPTIONS_COMMENTS_REACTIONS]
-      reactions: "",
+      reactions: "1",
       // [CONFIG:POST_OPTIONS_COMMENTS_METADATA]
-      metadata: "",
+      metadata: "1",
       // [CONFIG:POST_OPTIONS_COMMENTS_INPUT_POSITION]
-      inputPosition: "",
+      inputPosition: "top",
       // [CONFIG:POST_OPTIONS_COMMENTS_THEME]
-      theme: "",
+      theme: "transparent_dark",
       // [CONFIG:POST_OPTIONS_COMMENTS_LANG]
-      lang: "",
+      lang: "en",
       // [CONFIG:POST_OPTIONS_COMMENTS_LOADING]
-      loading: "",
+      loading: "lazy",
     },
   },
 };
@@ -461,7 +469,7 @@ export function getContentWidth(): string {
   return siteConfig.layout.contentWidth;
 }
 
-export function getTheme(): "minimal" | "oxygen" | "atom" | "ayu" | "catppuccin" | "charcoal" | "dracula" | "everforest" | "flexoki" | "gruvbox" | "macos" | "nord" | "obsidian" | "rose-pine" | "sky" | "solarized" | "things" | "custom" {
+export function getTheme(): string {
   return siteConfig.theme;
 }
 
@@ -629,11 +637,6 @@ function validateSiteConfig(config: SiteConfig): { isValid: boolean; errors: str
   if (!validThemes.includes(config.theme)) {
     errors.push(`Invalid theme selected: "${config.theme}". Choose from: Minimal, Oxygen, Atom, Ayu, Catppuccin, Charcoal, Dracula, Everforest, Flexoki, Gruvbox, macOS, Nord, Obsidian, Rose Pine, Sky, Solarized, or Things. For custom themes, use "custom" and set customThemeFile.`);
   }
-  if (config.theme === 'custom') {
-    if (!config.customThemeFile || config.customThemeFile.trim() === '') {
-      errors.push('Custom theme file is required when theme is set to "custom". Set customThemeFile to the filename (without .ts extension) in src/themes/custom/');
-    }
-  }
 
   // Available themes validation
   if (config.availableThemes !== 'default' && !Array.isArray(config.availableThemes)) {
@@ -682,7 +685,7 @@ function validateSiteConfig(config: SiteConfig): { isValid: boolean; errors: str
   }
 
   // Content width validation
-  if (!config.layout.contentWidth || !config.layout.contentWidth.match(/^\d+(\.\d+)?(rem|px|em)$/)) {
+  if (!config.layout.contentWidth || !config.layout.contentWidth.match(/^\d+(\.\d+)?(rem|px|em|vw)$/)) {
     errors.push(`Content width must be a valid CSS length value like "45rem", "800px", or "90em". Current value "${config.layout.contentWidth}" is invalid.`);
   }
 

@@ -53,6 +53,8 @@ const categories = project.data.categories || [];
 const status = normalizeStatus(project.data.status);
 const repositoryUrl = project.data.repositoryUrl;
 const projectUrl = project.data.projectUrl || project.data.demoUrl || project.data.demoURL;
+const curseforgeUrl = project.data.curseforgeUrl;
+const modrinthUrl = project.data.modrinthUrl;
 
 // Determine content availability for layout
 const hasDescription = description && description.trim().length > 0;

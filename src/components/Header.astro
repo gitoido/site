@@ -290,6 +290,8 @@ const paletteIcon = allSectionsDisabled ? 'search' : 'command';
 
 <script>
   // Mobile menu toggle
+  import type {Timeout} from "unenv/node/internal/timers/timeout";
+
   document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('mobile-menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -338,7 +340,7 @@ const paletteIcon = allSectionsDisabled ? 'search' : 'command';
         hoverTimeout = window.setTimeout(() => {
           dropdown.classList.add('hidden');
           trigger.setAttribute('aria-expanded', 'false');
-        }, 150); // Small delay to prevent accidental closes
+        }, 150) as Timeout; // Small delay to prevent accidental closes
       };
 
       // Show on hover

@@ -1,9 +1,9 @@
-import type { Post, PostData, ReadingTime, Heading } from "@/types";
-import { render } from "astro:content";
+import type {Post, PostData, ReadingTime, Heading} from "@/types";
+import {render} from "astro:content";
 
 // Check if a date is valid (not January 1, 1970 or invalid)
 export function isValidDate(date: Date): boolean {
-  if (!date || !(date instanceof Date) || isNaN(date.getTime())) {
+  if (!date || isNaN(date.getTime())) {
     return false;
   }
 
@@ -19,7 +19,7 @@ export function processMarkdown(content: string): {
   hasMore: boolean;
 } {
   // Handle empty or undefined content
-  if (!content || typeof content !== "string") {
+  if (!content) {
     return {
       excerpt: "",
       wordCount: 0,
@@ -32,8 +32,8 @@ export function processMarkdown(content: string): {
 
   // Remove markdown syntax for word counting and excerpt
   const plainText = withoutFrontmatter
-    .replace(/!\[.*?\]\(.*?\)/g, "") // Images
-    .replace(/\[.*?\]\(.*?\)/g, "$1") // Links
+    .replace(/!\[.*?]\(.*?\)/g, "") // Images
+    .replace(/\[.*?]\(.*?\)/g, "$1") // Links
     .replace(/`{1,3}.*?`{1,3}/gs, "") // Code
     .replace(/#{1,6}\s+/g, "") // Headers
     .replace(/[*_~`]/g, "") // Emphasis
@@ -58,7 +58,7 @@ export function processMarkdown(content: string): {
 // Calculate reading time manually
 export function calculateReadingTime(content: string): ReadingTime {
   // Handle empty or undefined content
-  if (!content || typeof content !== "string") {
+  if (!content) {
     return {
       text: "1 min read",
       minutes: 1,
@@ -138,7 +138,7 @@ export function getReadingTime(
 
 // Generate table of contents from headings
 export async function generateTOC(headings: Heading[]): Promise<Heading[]> {
-  const { getTableOfContentsDepth } = await import("@/config");
+  const {getTableOfContentsDepth} = await import("@/config");
   const maxDepth = getTableOfContentsDepth();
   return headings.filter(
     (heading) => heading.depth >= 2 && heading.depth <= maxDepth
@@ -147,8 +147,8 @@ export async function generateTOC(headings: Heading[]): Promise<Heading[]> {
 
 // Process content data for display (posts, projects, docs, etc.)
 export async function processPost(post: any) {
-  const { Content, headings, remarkPluginFrontmatter } = await render(post);
-  const { excerpt, wordCount, hasMore } = processMarkdown(post.body || "");
+  const {Content, headings, remarkPluginFrontmatter} = await render(post);
+  const {excerpt, wordCount, hasMore} = processMarkdown(post.body || "");
   const readingTime = getReadingTime(remarkPluginFrontmatter, post.body || ""); // Pass post.body as fallback
   const toc = await generateTOC(headings);
 
@@ -236,7 +236,7 @@ function isDevelopmentMode(): boolean {
 
 // Check if a post should be shown in production
 export function shouldShowPost(post: Post, isDev: boolean | undefined = undefined): boolean {
-  const { draft, title, date } = post.data;
+  const {draft, title, date} = post.data;
 
   // Always require title and date
   if (!title || !date) {
@@ -253,11 +253,7 @@ export function shouldShowPost(post: Post, isDev: boolean | undefined = undefine
   }
 
   // In production/preview, hide drafts (draft: true or undefined draft defaults to false)
-  if (draft === true) {
-    return false;
-  }
-
-  return true;
+  return draft !== true;
 }
 
 // Generic function to check if any content item should be shown
@@ -265,7 +261,7 @@ export function shouldShowContent(
   item: { data: { title: string; draft?: boolean } },
   isDev: boolean | undefined = undefined
 ): boolean {
-  const { draft, title } = item.data;
+  const {draft, title} = item.data;
 
   // Always require title
   if (!title) {
@@ -314,23 +310,24 @@ export function getAdjacentDocs<T extends { id: string; data: { category?: strin
 ) {
   // Filter docs by the same category
   const categoryDocs = docs.filter((doc) => {
-    const docCategory = doc.data.category && 
-      doc.data.category.trim() !== '' && 
-      doc.data.category !== 'General'
+    const docCategory = doc.data.category &&
+    doc.data.category.trim() !== '' &&
+    doc.data.category !== 'General'
       ? doc.data.category
       : null;
-    
+
     // If current doc has no category, match docs with no category
     if (!currentCategory) {
       return !docCategory;
     }
-    
+
     // Match exact category
     return docCategory === currentCategory;
   });
 
   // Sort by order (ascending), then by title (alphabetical)
   const sortedDocs = categoryDocs.sort((a, b) => {
+    console.log(a.data);
     if (a.data.order !== b.data.order) {
       return a.data.order - b.data.order;
     }
@@ -369,11 +366,14 @@ export function extractTags(posts: Post[]): string[] {
         const postTags = Array.isArray(post.data.tags)
           ? post.data.tags
           : [post.data.tags];
-        postTags.forEach((tag) => {
-          if (tag && typeof tag === "string" && tag.trim()) {
-            tags.add(tag.trim());
+        postTags.forEach(
+          // @ts-ignore
+          (tag) => {
+            if (tag && typeof tag === "string" && tag.trim()) {
+              tags.add(tag.trim());
+            }
           }
-        });
+        );
       }
     });
   } catch (error) {
@@ -387,7 +387,7 @@ export function extractTags(posts: Post[]): string[] {
 export function filterPostsByTag(posts: Post[], tag: string): Post[] {
   const isDev = import.meta.env.DEV;
 
-  if (!tag || typeof tag !== "string") {
+  if (!tag) {
     return [];
   }
 
@@ -400,6 +400,7 @@ export function filterPostsByTag(posts: Post[], tag: string): Post[] {
         ? post.data.tags
         : [post.data.tags];
       return postTags.some(
+        // @ts-ignore
         (postTag) =>
           postTag &&
           typeof postTag === "string" &&

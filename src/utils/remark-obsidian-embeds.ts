@@ -1,5 +1,6 @@
 import { visit } from 'unist-util-visit';
 import type { Plugin } from 'unified';
+// @ts-ignore
 import type { Root, Image, Link } from 'mdast';
 import fs from 'node:fs';
 import path from 'node:path';

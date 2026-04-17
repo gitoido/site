@@ -25,7 +25,7 @@ function getDefaultOGImage(): OpenGraphImage {
 
 // Helper function to extract image path from Obsidian bracket syntax
 function extractImagePath(image: string): string {
-  if (!image || typeof image !== "string") return "";
+  if (!image) return "";
 
   // Handle Obsidian bracket syntax: [[path/to/image.jpg]] (unquoted)
   if (image.startsWith("[[") && image.endsWith("]]")) {
@@ -89,6 +89,7 @@ export function generatePostSEO(post: Post, url: string): SEOData {
     ogType: "article",
     publishedTime: date.toISOString(),
     modifiedTime: date.toISOString(),
+    // @ts-ignore
     tags: tags?.filter((tag) => tag !== null) || undefined,
     noIndex: post.data.noIndex || false, // Add this line
   };
@@ -192,6 +193,7 @@ export function generateProjectSEO(project: Project, url: string): SEOData {
     ogType: "article",
     publishedTime: date.toISOString(),
     modifiedTime: date.toISOString(),
+    // @ts-ignore
     tags: project.data.categories?.filter((cat) => cat !== null) || undefined,
     noIndex: project.data.noIndex || false,
   };

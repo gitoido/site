@@ -135,6 +135,7 @@ views:
     filters:
       and:
         - file.folder.startsWith("docs")
+        - category == "Conditional Riding"
     groupBy:
       property: category
       direction: ASC

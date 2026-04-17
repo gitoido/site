@@ -213,6 +213,28 @@ const { prev: prevProject, next: nextProject } = getAdjacentPosts(visibleProject
 
             <!-- Floating Action Buttons -->
             <div class="absolute top-0 right-0 flex gap-2">
+              {project.data.curseforgeUrl && (
+                <a
+                  href={project.data.curseforgeUrl}
+                  target="_blank"
+
+                  class="inline-flex items-center justify-center px-2 py-2 text-sm text-primary-600 dark:text-primary-300 bg-primary-50 dark:bg-primary-800 rounded-lg border border-primary-200 dark:border-primary-700 hover:bg-highlight-100 dark:hover:bg-highlight-800 hover:text-highlight-700 dark:hover:text-highlight-300 transition-all duration-200 hover:shadow-md"
+                  title="View Curseforge page"
+                >
+                    <Icon name="curseforge" fill="currentColor" strokeSize={0} class="w-4 h-4" />
+                </a>
+              )}
+              {project.data.modrinthUrl && (
+                <a
+                  href={project.data.modrinthUrl}
+                  target="_blank"
+
+                  class="inline-flex items-center justify-center px-2 py-2 text-sm text-primary-600 dark:text-primary-300 bg-primary-50 dark:bg-primary-800 rounded-lg border border-primary-200 dark:border-primary-700 hover:bg-highlight-100 dark:hover:bg-highlight-800 hover:text-highlight-700 dark:hover:text-highlight-300 transition-all duration-200 hover:shadow-md"
+                  title="View Modrinth page"
+                >
+                    <Icon name="modrinth" fill="currentColor" strokeSize={0} class="w-4 h-4" />
+                </a>
+              )}
               {project.data.repositoryUrl && (
                 <a
                   href={project.data.repositoryUrl}

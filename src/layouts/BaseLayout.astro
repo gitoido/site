@@ -145,12 +145,14 @@ const scrollbarClass = siteConfig.hideScrollBar ? '' : 'show-scrollbars';
 
   <!-- Font CSS Variables -->
   <style define:vars={{
+    fontLogo: getFontFamily(siteConfig.fonts.families.logo),
     fontHeading: getFontFamily(siteConfig.fonts.families.heading),
     fontProse: getFontFamily(siteConfig.fonts.families.body),
     fontMono: getFontFamily(siteConfig.fonts.families.mono),
     fontDisplay: getFontDisplay()
   }}>
     :root {
+      --font-logo: var(--fontLogo);
       --font-heading: var(--fontHeading);
       --font-prose: var(--fontProse);
       --font-mono: var(--fontMono);
@@ -1083,7 +1085,7 @@ const scrollbarClass = siteConfig.hideScrollBar ? '' : 'show-scrollbars';
 
 </head>
 
-<body class={`min-h-screen bg-white dark:bg-primary-950 text-primary-900 dark:text-primary-50 text-selection-highlight transition-colors duration-200 ${scrollbarClass} ${bodyClass}`}>
+<body class={`min-h-screen flex flex-col bg-white dark:bg-primary-950 text-primary-900 dark:text-primary-50 text-selection-highlight transition-colors duration-200 ${scrollbarClass} ${bodyClass}`}>
   <!-- Skip to main content -->
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 btn-primary px-4 py-2 rounded-md z-50">
     Skip to main content
@@ -1093,7 +1095,7 @@ const scrollbarClass = siteConfig.hideScrollBar ? '' : 'show-scrollbars';
   <Header />
 
   <!-- Main content -->
-  <main id="main-content" class="container mx-auto relative" style={`max-width: ${siteConfig.layout.contentWidth}`}>
+  <main id="main-content" class="container mx-auto mb-auto relative flex-grow" style={`max-width: ${siteConfig.layout.contentWidth}`}>
     <div id="swup-container" class="transition-swup-fade">
       <slot />
     </div>
@@ -1902,7 +1904,7 @@ const scrollbarClass = siteConfig.hideScrollBar ? '' : 'show-scrollbars';
           const isDark = isDarkParam !== undefined 
             ? isDarkParam 
             : document.documentElement.classList.contains('dark');
-          const newTheme = isDark ? 'dark' : 'light';
+          const newTheme = isDark ? 'transparent_dark' : 'transparent_dark';
 
           // Send message to Giscus iframe to change theme
           giscusIframe.contentWindow.postMessage(

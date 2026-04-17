@@ -1,9 +1,9 @@
 {
   "runWizardOnStartup": true,
   "currentTemplate": "standard",
-  "currentTheme": "oxygen",
+  "currentTheme": "gruvbox",
   "customThemeFile": "custom",
-  "contentOrganization": "file-based",
+  "contentOrganization": "folder-based",
   "themeColors": {
     "mode": "simple",
     "simpleColors": {
@@ -12,10 +12,10 @@
     }
   },
   "siteInfo": {
-    "site": "https://astro-modular.netlify.app",
-    "title": "Astro Modular",
-    "description": "A flexible blog theme designed for Obsidian users.",
-    "author": "David V. Kimball",
+    "site": "https://gito.lol",
+    "title": "Gito - a silly guy in silly .env",
+    "description": "A personal site, a portfolio, a blog?",
+    "author": "Gito",
     "language": "en",
     "faviconThemeAdaptive": true,
     "defaultOgImageAlt": "Astro Modular logo."
@@ -64,18 +64,23 @@
       },
       {
         "title": "GitHub",
-        "url": "https://github.com/davidvkimball/astro-modular"
+        "url": "https://github.com/gitoido/site"
       }
     ],
     "social": [
       {
+        "title": "Twitch",
+        "url": "https://www.twitch.tv/gitovt",
+        "icon": "twitch"
+      },
+      {
         "title": "X",
-        "url": "https://x.com/davidvkimball",
+        "url": "https://x.com/gito_vt",
         "icon": "x-twitter"
       },
       {
         "title": "GitHub",
-        "url": "https://github.com/davidvkimball",
+        "url": "https://github.com/gitoido",
         "icon": "github"
       }
     ]
@@ -144,21 +149,21 @@
     "postCardAspectRatio": "og",
     "customPostCardAspectRatio": "2.5/1",
     "comments": {
-      "enabled": false,
+      "enabled": true,
       "provider": "giscus",
-      "rawScript": "",
-      "repo": "",
-      "repoId": "",
-      "category": "",
-      "categoryId": "",
-      "mapping": "",
-      "strict": "",
-      "reactions": "",
-      "metadata": "",
-      "inputPosition": "",
-      "theme": "",
-      "lang": "",
-      "loading": ""
+      "rawScript": "<script src=\"https://giscus.app/client.js\"\n        data-repo=\"gitoido/site\"\n        data-repo-id=\"R_kgDOSDivzA\"\n        data-category=\"Discussions\"\n        data-category-id=\"DIC_kwDOSDivzM4C66re\"\n        data-mapping=\"og:title\"\n        data-strict=\"1\"\n        data-reactions-enabled=\"1\"\n        data-emit-metadata=\"1\"\n        data-input-position=\"top\"\n        data-theme=\"gruvbox\"\n        data-lang=\"en\"\n        data-loading=\"lazy\"\n        crossorigin=\"anonymous\"\n        async>\n</script>",
+      "repo": "gitoido/site",
+      "repoId": "R_kgDOSDivzA",
+      "category": "Discussions",
+      "categoryId": "DIC_kwDOSDivzM4C66re",
+      "mapping": "og:title",
+      "strict": "1",
+      "reactions": "1",
+      "metadata": "1",
+      "inputPosition": "top",
+      "theme": "gruvbox",
+      "lang": "en",
+      "loading": "lazy"
     }
   },
   "features": {
@@ -172,7 +177,7 @@
     "scrollToTop": true,
     "showSocialIconsInFooter": true,
     "profilePicture": false,
-    "comments": false,
+    "comments": true,
     "featureButton": "mode",
     "showPostCardCoverImages": "featured-and-posts",
     "postCardAspectRatio": "og",
@@ -208,25 +213,25 @@
       "style": "circle"
     },
     "comments": {
-      "enabled": false,
+      "enabled": true,
       "provider": "giscus",
-      "rawScript": "",
-      "repo": "",
-      "repoId": "",
-      "category": "",
-      "categoryId": "",
-      "mapping": "",
-      "strict": "",
-      "reactions": "",
-      "metadata": "",
-      "inputPosition": "",
-      "theme": "",
-      "lang": "",
-      "loading": ""
+      "rawScript": "<script src=\"https://giscus.app/client.js\"\n        data-repo=\"gitoido/site\"\n        data-repo-id=\"R_kgDOSDivzA\"\n        data-category=\"Discussions\"\n        data-category-id=\"DIC_kwDOSDivzM4C66re\"\n        data-mapping=\"og:title\"\n        data-strict=\"1\"\n        data-reactions-enabled=\"1\"\n        data-emit-metadata=\"1\"\n        data-input-position=\"top\"\n        data-theme=\"gruvbox\"\n        data-lang=\"en\"\n        data-loading=\"lazy\"\n        crossorigin=\"anonymous\"\n        async>\n</script>",
+      "repo": "gitoido/site",
+      "repoId": "R_kgDOSDivzA",
+      "category": "Discussions",
+      "categoryId": "DIC_kwDOSDivzM4C66re",
+      "mapping": "og:title",
+      "strict": "1",
+      "reactions": "1",
+      "metadata": "1",
+      "inputPosition": "top",
+      "theme": "gruvbox",
+      "lang": "en",
+      "loading": "lazy"
     }
   },
   "deployment": {
-    "platform": "netlify"
+    "platform": "cloudflare-workers"
   },
   "pluginConfig": {
     "obsidianSettings": {

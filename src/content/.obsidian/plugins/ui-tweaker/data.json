@@ -279,6 +279,18 @@
     {
       "id": "categories",
       "icon": "lucide-list-x"
+    },
+    {
+      "id": "curseforgeurl",
+      "icon": "lucide-link"
+    },
+    {
+      "id": "modrinthurl",
+      "icon": "lucide-link"
+    },
+    {
+      "id": "order",
+      "icon": "lucide-list-ordered"
     }
   ],
   "minimalPropertyIcons": false,

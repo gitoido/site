@@ -1,3 +1,4 @@
+// @ts-ignore
 import type { Root, Image } from "mdast";
 import { visit } from "unist-util-visit";
 

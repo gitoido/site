@@ -1,6 +1,6 @@
 ---
 title: Documentation
-description: Comprehensive guides, tutorials, and reference materials to help you get the most out of this project.
+description: Comprehensive reference materials to help you get the most out of my projects.
 hideTOC: false
 ---
-Find everything you need to understand, use, and contribute to this project. 
+Comprehensive reference materials to help you get the most out of my projects.

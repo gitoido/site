@@ -1,8 +1,8 @@
 {
   "showInlineTitle": false,
-  "promptDelete": true,
+  "promptDelete": false,
   "showIndentGuide": false,
-  "attachmentFolderPath": "./attachments",
+  "attachmentFolderPath": "./",
   "userIgnoreFilters": [
     "bases/"
   ],
