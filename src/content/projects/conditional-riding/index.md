@@ -1,7 +1,7 @@
 ---
 title: Conditional Riding
 description: Allows to configure ability to ride Pokemon via simple config
-date: 2026-03-19
+date: 2026-04-17
 categories:
   - utility
   - cobblemon
@@ -15,8 +15,8 @@ image: ""
 imageAlt: ""
 hideCoverImage: true
 hideTOC: true
-draft: true
-noIndex: true
+draft: false
+noIndex: false
 featured: true
 ---
 ## Ever felt that getting to ride your pokemon is too easy?
