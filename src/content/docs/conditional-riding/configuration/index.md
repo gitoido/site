@@ -82,6 +82,7 @@ This ruleset will be checked first, before any other ruleset, and it will apply 
 {
   "enabled": true,
   "message": "conditional_riding.failed_ruleset.generic",
+  "negation": true,
   "rules": [
 	{
 	  "variant": "held_item",
@@ -93,7 +94,8 @@ This ruleset will be checked first, before any other ruleset, and it will apply 
 }
 ```
 
-* `enabled` (default value: `true`) - Enables or disables ruleset. 
+* `enabled` (default value: `true`) - Enables or disables ruleset.
+* `negation` (optional, default value: `false`) - Changes ruleset to do negative check of values.
 * `message` (default value: `conditional_riding.failed_ruleset.global`) - The message that will be shown to player wen ruleset check fails.
   
 	It can be a simple text: `Cannot ride!`
