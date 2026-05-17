@@ -199,25 +199,16 @@ export const siteConfig: SiteConfig = {
   faviconThemeAdaptive: false, // If true, favicon switches between favicon-dark.png and favicon-light.png based on browser's system theme preference. If false, always uses favicon.png
   // [CONFIG:DEFAULT_OG_IMAGE_ALT]
   defaultOgImageAlt: "Dork Solutions logo.", // Alt text for the default Open Graph image, public/open-graph.png
-
-  // Global Settings
-  // [CONFIG:THEME]
-  theme: "gruvbox", // Available themes: "minimal" | "oxygen" | "atom" | "ayu" | "catppuccin" | "charcoal" | "dracula" | "everforest" | "flexoki" | "gruvbox" | "macos" | "nord" | "obsidian" | "rose-pine" | "sky" | "solarized" | "things" | "custom"
-  // [CONFIG:CUSTOM_THEME_FILE]
-  customThemeFile: "custom", // Only used if theme is set to "custom" above. Filename in src/themes/custom/ (without .ts extension)
-  // [CONFIG:AVAILABLE_THEMES]
-  availableThemes: ["gruvbox"], // "default" to show all built-in themes, or array of theme names like ["oxygen", "minimal", "obsidianite"] to limit choices (can include custom theme filenames)
+  theme: "gruvbox",
+  customThemeFile: "custom",
+  availableThemes: ["gruvbox"],
   fonts: {
-    // [CONFIG:FONT_SOURCE]
-    source: "cdn", // "local" for self-hosted @fontsource fonts, "cdn" for Google Fonts CDN
+    source: "cdn",
     families: {
       logo: "Doto",
-      // [CONFIG:FONT_BODY]
-      body: "Inter",      // Body text font family
-      // [CONFIG:FONT_HEADING]
-      heading: "Inter",   // Heading font family  
-      // [CONFIG:FONT_MONO]
-      mono: "JetBrains Mono", // Monospace font family
+      body: "Inter",
+      heading: "Inter",
+      mono: "JetBrains Mono",
     },
     // [CONFIG:FONT_DISPLAY]
     display: "swap", // Font display strategy: "swap" (recommended), "fallback", or "optional"
