@@ -12,4 +12,10 @@ Call me a retired(?) software developer, but really, I'm Gito - a lifelong tinke
 
 I've worked across the full stack with an assortment of languages, but Java and Kotlin have my current attention.
 
-When I need a break from the screen, I'm usually jamming on my guitar, deep in a computer game, or	streaming things on my Twitch channel.
+I also love to stream things on my Twitch channel!
+
+### Links
+* [Follow me on Twitch!](https://twitch.tv/GitoVT)
+* [Join my Discord!](https://discord.gg/hXjR88ZKa4)
+* [Check out my GitHub](https://github.com/gitoido)
+* [Check out my GitHub for Minecraft stuff!](https://github.com/gitoido-mc)
