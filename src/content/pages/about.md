@@ -17,5 +17,5 @@ I also love to stream things on my Twitch channel!
 ### Links
 * [Follow me on Twitch!](https://twitch.tv/GitoVT)
 * [Join my Discord!](https://discord.gg/hXjR88ZKa4)
-* [Check out my GitHub](https://github.com/gitoido)
+* [Check out my main GitHub!](https://github.com/gitoido)
 * [Check out my GitHub for Minecraft stuff!](https://github.com/gitoido-mc)
