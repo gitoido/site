@@ -186,9 +186,9 @@ export const siteConfig: SiteConfig = {
   // [CONFIG:SITE_URL]
   site: "https://gito.lol",
   // [CONFIG:SITE_TITLE]
-  title: "Dork Solutions",
+  title: "Gito - a silly guy in silly .env",
   // [CONFIG:HOMEPAGE_TITLE]
-  homepageTitle: "Welcome",
+  homepageTitle: "",
   // [CONFIG:SITE_DESCRIPTION]
   description: "A personal site, a portfolio, a blog?",
   // [CONFIG:SITE_AUTHOR]
@@ -209,7 +209,7 @@ export const siteConfig: SiteConfig = {
   availableThemes: "default", // "default" to show all built-in themes, or array of theme names like ["oxygen", "minimal", "obsidianite"] to limit choices (can include custom theme filenames)
   fonts: {
     // [CONFIG:FONT_SOURCE]
-    source: "cdn", // "local" for self-hosted @fontsource fonts, "cdn" for Google Fonts CDN
+    source: "local", // "local" for self-hosted @fontsource fonts, "cdn" for Google Fonts CDN
     families: {
       logo: "Doto",
       // [CONFIG:FONT_BODY]
@@ -224,7 +224,7 @@ export const siteConfig: SiteConfig = {
   },
   layout: {
     // [CONFIG:LAYOUT_CONTENT_WIDTH]
-    contentWidth: "60rem",
+    contentWidth: "45rem",
   },
   tableOfContents: {
     // [CONFIG:TABLE_OF_CONTENTS_ENABLED]
@@ -258,7 +258,7 @@ export const siteConfig: SiteConfig = {
     // [CONFIG:COMMAND_PALETTE_SHORTCUT]
     shortcut: "ctrl+K",
     // [CONFIG:COMMAND_PALETTE_PLACEHOLDER]
-    placeholder: "Search contents",
+    placeholder: "Search posts",
     search: {
       // [CONFIG:COMMAND_PALETTE_SEARCH_POSTS]
       posts: true,
@@ -281,11 +281,11 @@ export const siteConfig: SiteConfig = {
       // [CONFIG:COMMAND_PALETTE_QUICK_ACTIONS_ENABLED]
       enabled: true,
       // [CONFIG:COMMAND_PALETTE_QUICK_ACTIONS_TOGGLE_MODE]
-      toggleMode: false,
+      toggleMode: true,
       // [CONFIG:COMMAND_PALETTE_QUICK_ACTIONS_GRAPH_VIEW]
       graphView: true,
       // [CONFIG:COMMAND_PALETTE_QUICK_ACTIONS_CHANGE_THEME]
-      changeTheme: false,
+      changeTheme: true,
     },
   },
 
@@ -320,12 +320,11 @@ export const siteConfig: SiteConfig = {
       { title: "Posts", url: "/posts/" },
       { title: "Projects", url: "/projects/" },
       { title: "Docs", url: "/docs/" },
-      {
-        title: "About", url: "/about/",
+      { title: "About", url: "/about/",
         children: [
-          {title: "Privacy Policy", url: "/privacy-policy/"}
-        ]
-      }
+          { title: "Privacy Policy", url: "/privacy-policy/" }
+        ] },
+      { title: "GitHub", url: "https://github.com/gitoido/site" }
     ],
     // [CONFIG:NAVIGATION_SOCIAL]
     social: [
@@ -334,11 +333,11 @@ export const siteConfig: SiteConfig = {
         url: "https://www.twitch.tv/gitovt",
         icon: "twitch",
       },
-      // {
-      //   title: "X",
-      //   url: "https://x.com/gito_vt",
-      //   icon: "x-twitter",
-      // },
+      {
+        title: "X",
+        url: "https://x.com/gito_vt",
+        icon: "x-twitter",
+      },
       {
         title: "GitHub",
         url: "https://github.com/gitoido",
@@ -359,7 +358,7 @@ export const siteConfig: SiteConfig = {
   homeOptions: {
     featuredPost: {
       // [CONFIG:HOME_OPTIONS_FEATURED_POST_ENABLED]
-      enabled: false, // Show featured post on homepage
+      enabled: true, // Show featured post on homepage
       // [CONFIG:HOME_OPTIONS_FEATURED_POST_TYPE]
       type: "latest", // "latest" or "featured"
       // [CONFIG:HOME_OPTIONS_FEATURED_POST_SLUG]
@@ -375,13 +374,13 @@ export const siteConfig: SiteConfig = {
       // [CONFIG:HOME_OPTIONS_PROJECTS_ENABLED]
       enabled: true, // Show featured projects on homepage
       // [CONFIG:HOME_OPTIONS_PROJECTS_COUNT]
-      count: 4, // Number of projects to show
+      count: 2, // Number of projects to show
     },
     docs: {
       // [CONFIG:HOME_OPTIONS_DOCS_ENABLED]
       enabled: true, // Show featured docs on homepage
       // [CONFIG:HOME_OPTIONS_DOCS_COUNT]
-      count: 6, // Number of docs to show
+      count: 3, // Number of docs to show
     },
     blurb: {
       // [CONFIG:HOME_OPTIONS_BLURB_PLACEMENT]
@@ -447,7 +446,7 @@ export const siteConfig: SiteConfig = {
       // [CONFIG:POST_OPTIONS_COMMENTS_INPUT_POSITION]
       inputPosition: "top",
       // [CONFIG:POST_OPTIONS_COMMENTS_THEME]
-      theme: "transparent_dark",
+      theme: "gruvbox",
       // [CONFIG:POST_OPTIONS_COMMENTS_LANG]
       lang: "en",
       // [CONFIG:POST_OPTIONS_COMMENTS_LOADING]
