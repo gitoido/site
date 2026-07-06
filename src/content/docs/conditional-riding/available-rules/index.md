@@ -4,7 +4,7 @@ description: The list of rules that can be used to control riding
 category: Conditional Riding
 order: 2
 version: 0.1.3
-lastModified: 2026-04-17
+lastModified: 2026-07-06
 image: ""
 imageAlt: ""
 hideCoverImage: true
@@ -298,7 +298,6 @@ date: 2026-04-17
 * `items` - Item identifier or tag, for example `#c:brushes`
 * `components` - The list of data components the item stack must have
 * The check fails, if pokemon doesn't have such item in cosmetic slot
-
 ## Pokemon Minimal HP
 ```json
 {
@@ -308,3 +307,26 @@ date: 2026-04-17
 ```
 * `percent` - The amount of hp in percents that pokemon must have
 * The check will fail if pokemon hp percentage is lower than value provided
+## Riding Style *v0.1.4+*
+
+```json
+{
+	"variant": "riding_style",
+	"ridingStyle": "air"
+}
+```
+* `ridingStyle` - The riding style
+    The accepted values are:
+    - `land`
+    - `liquid`
+    - `air`
+* The check will fail if pokemon doesn't have the riding style in requirement
+## Mark Obtained *v0.1.4+*
+```json
+{
+	"variant": "mark_obtained",
+	"mark": "cobblemon:mark_curry"
+}
+```
+* `mark` - The identifier of mark
+* The check will fail if pokemon doesn't have the mark/ribbon acquired
