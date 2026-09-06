@@ -3,8 +3,8 @@ title: Available rules
 description: The list of rules that can be used to control riding
 category: Conditional Riding
 order: 2
-version: 0.1.3
-lastModified: 2026-07-06
+version: 0.1.5
+lastModified: 2026-09-06
 image: ""
 imageAlt: ""
 hideCoverImage: true
@@ -330,3 +330,75 @@ date: 2026-04-17
 ```
 * `mark` - The identifier of mark
 * The check will fail if pokemon doesn't have the mark/ribbon acquired
+## Match All *v0.1.5+*
+```json
+{
+	"variant": "match_all",
+	"negate": false,
+	"rules": [
+		{
+			"variant": "minimal_hp_percent",
+			"percent": 40
+		},
+		{
+			"variant": "blocks_traveled",
+			"amount": 100
+		}
+	]
+}
+```
+* `negate` - *optional* - flip check result
+* `rules` - List of rules that must be checked
+* The check will fail if **ALL** checks in `rules` block fail
+## Match One *v0.1.5+*
+```json
+{
+	"variant": "match_one",
+	"rules": [
+		{
+			"variant": "minimal_hp_percent",
+			"percent": 40
+		},
+		{
+			"variant": "blocks_traveled",
+			"amount": 100
+		}
+	]
+}
+```
+* `rules` - List of rules that must be checked
+* The check will pass if at least **ONE** check in `rules` block passes
+* You can mix and combine with match all:
+```json
+{
+	"variant": "match_one",
+	"rules": [
+		{
+			"variant": "match_all",
+			"rules": [
+				{
+					"variant": "minimal_hp_percent",
+					"percent": 40
+				},
+				{
+					"variant": "blocks_traveled",
+					"amount": 100
+				}
+			]
+		},
+		{
+			"variant": "match_one",
+			"rules": [
+				{
+					"variant": "permission_node",
+					"node": "conditional_riding.can_ride"
+				},
+				{
+					"variant": "level",
+					"maxLevel": 42
+				}
+			]
+		}
+	]
+}
+```

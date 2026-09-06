@@ -3,8 +3,8 @@ title: Configuration
 description: Let's get these rules set up properly
 category: Conditional Riding
 order: 1
-version: 0.1.3
-lastModified: 2026-04-16
+version: 0.1.5
+lastModified: 2026-09-06
 image: ""
 imageAlt: ""
 hideCoverImage: true
@@ -28,20 +28,19 @@ It will be automatically generated and placed at this path after first game laun
   "debug": false,
   "enabled": true,
   "messagesInHotbar": false,
-  "rulesets": {
-    "global": {
-      "enabled": true,
-      "message": "conditional_riding.failed_ruleset.global",
-      "rules": [
-        {
-          "variant": "held_item",
-          "itemCondition": {
-            "items": "minecraft:saddle"
-          }
-        }
-      ]
-    }
-  }
+  "global": {
+    "enabled": true,
+    "message": "conditional_riding.failed_ruleset.global",
+    "rules": [
+	  {
+	    "variant": "held_item",
+	    "itemCondition": {
+		  "items": "minecraft:saddle"
+	    }
+	  }
+    ]
+  },
+  "custom": {}
 }
 ```
 
@@ -51,30 +50,25 @@ It will be automatically generated and placed at this path after first game laun
 * `enabled` (default value: `true`) - Enables or disables global mod functionality. 
 * `messagesInHotbar` (default value: `false`) - If set to `true` the ruleset check messages will be shown above player hotbar instead of being a message in chat. 
 * `rulesets` (by default provides `global` ruleset) - A list of riding rule sets. They are explained in next section.
-## Rulesets field structure
+## Rulesets structure
 
 ```json
-	"rulesets": {
-		"global": {...object...},
-		"blastoise": {...object...}
-		"<pokemon>": {...}
-	}
+  "global": {...object...},
+  "custom": {
+	"blastoise shiny": {...object...}
+	"<pokemon>": {...object...}
+  }
 ```
 
 Let's observe the structure above:
 
-`rulesets` field  is basically a list of pairs. Every pair is `key` on left side and `object` on right side.
-
-
- `key` on the left side is used as ruleset name and the actual binding of ruleset to pokemon.
-
+`global` object is basically a ruleset that applies to all species player tries to ride.
 
 `object` on right side is used as ruleset configuration and its [structure](#Ruleset%20structure) explained down below.
 
-`global` ruleset name is a **reserved name by mod**.
-This ruleset will be checked first, before any other ruleset, and it will apply on every pokemon.
+`custom` object contains rulesets for *PokemonProperties* string. For example:
 
-`blastoise` ruleset will be checked on **Blastoise** only.
+`blastoise shiny` ruleset will be checked on **Shiny Blastoise** only.
 
 ## Ruleset structure
 
