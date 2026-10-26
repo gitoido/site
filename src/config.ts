@@ -190,7 +190,7 @@ export const siteConfig: SiteConfig = {
   // [CONFIG:HOMEPAGE_TITLE]
   homepageTitle: "Dork Solutions",
   // [CONFIG:SITE_DESCRIPTION]
-  description: "A digital garden of Gito, VTuber and developer.",
+  description: "A digital garden of Gito.",
   // [CONFIG:SITE_AUTHOR]
   author: "Gito",
   // [CONFIG:SITE_LANGUAGE]

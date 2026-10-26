@@ -3,8 +3,8 @@ title: Available rules
 description: The list of rules that can be used to control riding
 category: Conditional Riding
 order: 2
-version: 0.1.5
-lastModified: 2026-09-06
+version: 0.2.0
+lastModified: 2026-10-26
 image: ""
 imageAlt: ""
 hideCoverImage: true
@@ -137,6 +137,7 @@ date: 2026-04-17
 }
 ```
 * `range` - The time range when check passes.
+
     The accepted values are: 
     - `any`
     - `day`
@@ -219,6 +220,7 @@ date: 2026-04-17
 }
 ```
 * `moonPhase` - The current in-game phase of moon.
+
     The accepted values are:
     - `FULL_MOON`
     - `WANING_GIBBOUS`
@@ -316,6 +318,7 @@ date: 2026-04-17
 }
 ```
 * `ridingStyle` - The riding style
+
     The accepted values are:
     - `land`
     - `liquid`
@@ -402,3 +405,43 @@ date: 2026-04-17
 	]
 }
 ```
+## Negate *v0.2.0+*
+```json
+{
+  "variant": "negate",
+  "inner": {
+    "variant": "level",
+    "maxLevel": 42
+  }
+}
+```
+* `inner` - Requirement that will be inversely checked
+* The check will pass if requirement is not met
+* The check will fail if requirement is met
+## Game Mode *v0.2.0+*
+```json
+{
+  "variant": "game_mode",
+  "mode": "survival"
+}
+```
+* `mode` - Current game mode of a player
+
+  The accepted values are:
+  - `land`
+  - `liquid`
+  - `air`
+* The check will pass if requirement is not met
+* The check will fail if requirement is met
+## Player held item *v0.2.0+*
+```json
+{
+    "variant": "player_held_item",
+    "itemCondition": {
+        "items": "minecraft:saddle"
+    }
+}
+```
+* `items` - Item identifier or tag, for example `#c:brushes`
+* `components` - The list of data components the item stack must have
+* The check fails, if player doesn't hold such item
