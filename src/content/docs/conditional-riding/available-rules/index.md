@@ -428,9 +428,10 @@ date: 2026-04-17
 * `mode` - Current game mode of a player
 
   The accepted values are:
-  - `land`
-  - `liquid`
-  - `air`
+  - `survival`
+  - `creative`
+  - `adventure`
+  - `spectator` (that one will do nothing)
 * The check will pass if requirement is not met
 * The check will fail if requirement is met
 ## Player held item *v0.2.0+*
